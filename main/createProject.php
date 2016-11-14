@@ -1,4 +1,6 @@
 <?php 
+	ob_start();
+	include('../auth.php');
 	include('../_globalkq.php');
 ?>
 <!doctype html>
@@ -19,27 +21,23 @@
 <?php
  require('../_globalkq.php');
  // If form submitted, insert values into the database.
- if (isset($_POST['username'])){
- $firstname = $_POST['firstname'];
- $lastname = $_POST['lastname'];
- $username = $_POST['username'];
- $password = $_POST['password'];
- $mode = $_POST['mode'];
+ if (isset($_POST['projectName']) && !empty($_POST['projectName'])){
+ $username = $_SESSION['username'];;
+ $projectName = $_POST['projectName'];
+ $deadline = $_POST['deadline'];
+ $budgets = $_POST['budgets'];
 
+ //$projectName = mysql_real_escape_string($projectName);
+ //$username = stripslashes($username);
+ //$username = mysql_real_escape_string($username);
+ //$deadline = stripslashes($deadline);
+ //$budgets = mysql_real_escape_string($budgets);
  
- $firstname = stripslashes($firstname);
- $lastname = mysql_real_escape_string($lastname);
- $username = stripslashes($username);
- $username = mysql_real_escape_string($username);
- $password = stripslashes($password);
- $password = mysql_real_escape_string($password);
- $mode = stripslashes($mode);
- $mode = mysql_real_escape_string($mode);
- 
- $query = "INSERT into `users` (firstname, lastname, username, password, mode) VALUES ('$firstname','$lastname','$username', '".md5($password)."', '$mode')";
- $result = mysql_query($query);
+ $query = "INSERT into projects (username, projectname, deadline, budgets) VALUES ('".$username."','".$projectName."','".$deadline."', '".$budgets."')";
+ $result = mysql_query($query, $conn) or die("Couldn't perform query $query (".__LINE__."): " . mysql_error() . '.');
  if($result){
- 	echo "<div class='login'><h3>You are registered successfully.</h3><br/>Click here to <a href='index.php'>Login</a></div>";
+ 	//echo "<div class='login'><h3>You are registered successfully.</h3><br/>Click here to <a href='index.php'>Login</a></div>";
+ 	header("Location: /main/dashboard.php");
  } 
  else{
  	echo "<div class='login'><h3>Account already exists. </h3><br/>Click here to <a href='index.php'>Go Back</a></div>";
@@ -54,7 +52,7 @@
 		    	<li>
 					<!-- <a href="registration.php" class="button btn-default"></a> -->
 					<a href="/main/dashboard.php">
-						<button type="button" class="btn btn-info login-btn-pos" id="backBtn">
+						<button type="button" class="btn btn-info login-btn-pos" id="backBtn" style="position:relative; left:25px">
 						Back</button>
 					</a>
 				</li>
@@ -70,10 +68,12 @@
 	</header>
 	<div class='login'>
 		<h2>Create New Project</h2>
-		<form name="createProject" action="" method="get">
+		<form name="createProject" action="" method="post">
 			<input name='projectName' placeholder='Project Name' type='text' required />
-			<input name='deadline' placeholder='Deadline' type='text' required />
-			<input name='budgets' placeholder='Estimate Cost' type='text' required />
+			<br><br>
+			<b>Estimate Cost:</b><input name='budgets' placeholder='Estimate Cost' type='number' required />
+			<br><br>
+			<b>Deadline:</b><input name='deadline' placeholder='Deadline' type='date' required />
 
 			<br><br>
 
@@ -92,3 +92,5 @@
 <?php } ?>
 </body>
 </html>
+
+<?php ob_end_flush(); ?>

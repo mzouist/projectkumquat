@@ -51,12 +51,13 @@
 		$_SESSION['username'] = $username;
 		//$action = "/main/dashboard.php";
 		header("Location: /main/dashboard.php"); // Redirect user to index.php
+		$_SESSION['error_flag'] = "";
 	}
 	else {
 		header("Location: /index.php");
 		//$error_flag= "<div class='login'><h3>Username/password is incorrect.</h3><br</div>";
 		//$action = "/main/dashboard.php";
-		$error_flag = "Incorrect login info";
+		$_SESSION['error_flag'] = "Incorrect login info";
 	}
 }
 ?>
@@ -70,7 +71,7 @@
 				<input checked='' id='remember' name='remember' type='checkbox'/>
 				<label for='remember'></label>Remember me
 				
-				<div> <?php echo $error_flag; ?> </div>
+				<div> <?php echo $_SESSION['error_flag']; ?> </div>
 			</div>
 			<input type='submit' value='Sign in' class="login-buttons"/>
 		</form>
