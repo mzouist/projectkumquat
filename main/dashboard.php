@@ -39,6 +39,14 @@
 ?>
 
 
+
+	<div class="form" style="position:relative; left: 100px; bottom: -65px;">
+	<p>Hello <b><?php echo $_SESSION['username']; ?></b>!</p>
+	Your are a <?php echo $_POST['mode']; ?> <---Should specify is Manager or Developer!
+	<p>Below are current projects.</p> <a href="userlist.php">View Users</a>.
+
+	</div>
+
 <?php
 $sql="SELECT * FROM `projects` ";
 $query=mysql_query($sql) or die(mysql_error());
@@ -100,146 +108,5 @@ $i++;
 ?>
 
 
-
-	
-	<div class="row" style="margin-top: 100px; padding: 0 25px;">
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		<div class = "col-sm-6 col-md-3">
-		    <a href="#" class = "thumbnail">
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		project title here
-		       	</div>
-		    </a>
-	    </div>
-		
-	</div>
-
-
-	<div class="form" style="position:relative; bottom: -65px;">
-	<p>Welcome <?php echo $_SESSION['username']; ?>!</p>
-	<p>This is secure area.</p>
-	<p><a href="dashboard.php">Dashboard</a></p>
-	<a href="/index.php">Logout</a>
-	</div>
 </body>
 </html>

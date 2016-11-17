@@ -37,10 +37,13 @@
  	//$password = $dom->getElementById('password');
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$mode = $_POST['mode'];
 	$username = stripslashes($username);
 	$username = mysql_real_escape_string($username);
 	$password = stripslashes($password);
 	$password = mysql_real_escape_string($password);
+	$mode = stripslashes($mode);
+	$mode = mysql_real_escape_string($mode);
 	//Checking is user existing in the database or not
 	$query = "SELECT * FROM users WHERE username= '". $username ."' AND password='".md5($password)."'";
 	$result = mysql_query($query, $conn) or die("Couldn't perform query $query (".__LINE__."): " . mysql_error() . '.');
@@ -49,6 +52,7 @@
 	if($rows==1)
 	{
 		$_SESSION['username'] = $username;
+		$_SESSION['mode'] = $mode;
 		//$action = "/main/dashboard.php";
 		header("Location: /main/dashboard.php"); // Redirect user to index.php
 		$_SESSION['error_flag'] = "";
