@@ -22,6 +22,12 @@
 						Create Project</button>
 					</a>
 				</li>
+				<li>
+					<a href="/main/dashboard.php">
+						<button type="button" class="btn btn-info login-btn-pos" id="dashboard">
+						Dashboard</button>
+					</a>
+				</li>
 		        <li>
 					<!-- <a href="registration.php" class="button btn-default"></a> -->
 					<a href="/index.php">

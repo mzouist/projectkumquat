@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<!--title>Welcome Home</title-->
-	<title>Project Kumquat | Dashboard</title>
+	<title>Project Kumquat | User List</title>
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/css/custom.css">
 	<link rel="stylesheet" type="text/css" href="/css/dashboard.css">
@@ -23,9 +23,9 @@
 					</a>
 				</li>
 				<li>
-					<a href="/main/userlist.php">
-						<button type="button" class="btn btn-info login-btn-pos" id="userlist">
-						View Users</button>
+					<a href="/main/dashboard.php">
+						<button type="button" class="btn btn-info login-btn-pos" id="dashboard">
+						Dashboard</button>
 					</a>
 				</li>
 		        <li>
@@ -39,51 +39,64 @@
 	  </nav>
 	</header>
 
+
+<div class="login">
+
 <?php 
 
-
+if($_SESSION['username'] == 'user1')
+{
+echo 'Hello user1';
+}
+else
+{
+echo 'You are not user1';
+}
 ?>
+<br>
+<a href="/main/dashboard.php">Return to Dashboard</a>.
 
+<br>
+	<?php
 
+	// The value of the variable name is found
+	echo "<b>Displaying Project #" . $_GET["id"] . "</b>";
 
-	<div class="form" style="position:relative; left: 100px; bottom: -65px;">
-	<p>Hello <b><?php echo $_SESSION['username']; ?></b>!</p>
-	Your are a <?php echo $_SESSION['mode']; ?> <---Should specify is Manager or Developer!
-	<p>Below are current projects.</p> 
-
-	</div>
-
+	?>
+	
 <?php
-$sql="SELECT * FROM `projects` ";
+$sql="SELECT * FROM `projects` WHERE `project_id`='" . $_GET["id"] . "'";
 $query=mysql_query($sql) or die(mysql_error());
 $i=1;
 ?>
-<div class="form" style="margin-top: 100px;">
 <?php
 while($results=mysql_fetch_assoc($query))
 {
-
 	?>
+	<h1><?php echo $results['projectname']; ?></h1> ( added by <?php echo $results['username']; ?> )
+<br />
 
-<div class = "col-sm-6 col-md-3">
-		   		    
-
-  <a href="project.php?id=<?php echo $results['project_id']; ?>">
-
-		       <img src = "https://pbs.twimg.com/profile_images/714225595727609856/fF2yIUyE.jpg" class="img-circle img-responsive">
-		       <div class = "caption text-center">
-		       		<h1><?php echo $results['projectname']; ?></h1>
-		       	</div>
-		    </a>
-
-
-</div>
-	    </div>
 <?php
-$i++;
+	
+	$sql2="SELECT * FROM `projects` WHERE `project_id`=' " . $_GET["id"] . " '";
+	$query2=mysql_query($sql2) or die(mysql_error());
+		
+
+	while($results2=mysql_fetch_assoc($query2))
+	{
+		?>
+		<b>budgets:</b> $
+		<?php echo $results2['budgets']; ?> 
+		<br><b>deadline:</b> <?php echo $results2['deadline']; ?>
+	
+<?php		
+	}
 }
+	
 ?>
 
+
+	    </div>
 
 </body>
 </html>
