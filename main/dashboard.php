@@ -41,7 +41,6 @@
 
 <?php 
 
-
 ?>
 
 
@@ -49,18 +48,27 @@
 	<div class="form" style="position:relative; left: 100px; bottom: -65px;">
 	<p>Hello <b><?php echo $_SESSION['username']; ?></b>!</p>
 	Your are a <?php echo $_SESSION['mode']; ?> <---Should specify is Manager or Developer!
+<<<<<<< Updated upstream
 	<p>Below are current projects.</p> 
+=======
+	<p>Below are current projects.</p> <a href="userlist.php">View Users</a>.
+>>>>>>> Stashed changes
 
 	</div>
 
 <?php
-$sql="SELECT * FROM `projects` ";
-$query=mysql_query($sql) or die(mysql_error());
-$i=1;
+
+	$sql="SELECT * FROM `projects` ";
+	$query=mysql_query($sql) or die(mysql_error());
+	$i=1;
 ?>
 <div class="form" style="margin-top: 100px;">
 <?php
-while($results=mysql_fetch_assoc($query))
+
+	//IF THE USER IS MANAGER
+	if($_SESSION['mode'] == 'manager'){
+
+		while($results=mysql_fetch_assoc($query))
 {
 
 	?>
@@ -80,10 +88,35 @@ while($results=mysql_fetch_assoc($query))
 </div>
 	    </div>
 <?php
+<<<<<<< Updated upstream
 $i++;
 }
 ?>
 
 
+=======
+		$i++;
+	}
+}
+?>
+
+<?php 
+	
+	//IF THE USER IS DEVELOPER
+	if($_SESSION['mode'] == 'developer'){
+	
+	}
+?>
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
 </body>
 </html>

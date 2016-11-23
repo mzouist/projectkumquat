@@ -48,11 +48,19 @@
 	$query = "SELECT * FROM users WHERE username= '". $username ."' AND password='".md5($password)."'";
 	$result = mysql_query($query, $conn) or die("Couldn't perform query $query (".__LINE__."): " . mysql_error() . '.');
 	$rows = mysql_num_rows($result);
-
 	if($rows==1)
 	{
+<<<<<<< Updated upstream
 		$_SESSION['username'] = $username;
 		$_SESSION['mode'] = $mode;
+=======
+
+		$sqlRecord = mysql_fetch_assoc($result);
+		$manager_mode =  $sqlRecord['mode'];
+		$user_name = $sqlRecord['username'];
+		$_SESSION['username'] = $user_name;
+		$_SESSION['mode'] = $manager_mode;
+>>>>>>> Stashed changes
 		//$action = "/main/dashboard.php";
 		header("Location: /main/dashboard.php"); // Redirect user to index.php
 		$_SESSION['error_flag'] = "";
@@ -65,7 +73,6 @@
 	}
 }
 ?>
-	
 	<div class='login'>
 		<h2>Welcome</h2>
 		<form action="" method="post">
