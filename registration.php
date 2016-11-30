@@ -59,9 +59,9 @@
 	<div class='login'>
 		<h2>Register</h2>
 		<form name="registration" action="" method="post">
-			<input name='firstname' placeholder='First name' type='text'/>
-			<input name='lastname' placeholder='Last name' type='text'/>
-			<input name='username' placeholder='Username' type='text'/>
+			<input name='firstname' placeholder='First name' type='text' class="input-text"/>
+			<input name='lastname' placeholder='Last name' type='text' class="input-text"/>
+			<input name='username' placeholder='Username' type='text' class="input-text"/>
 			<input id='pw' name='password' placeholder='Password' type='password'/>
 			<input id='confirmpw' name='confirmpassword' 
 			placeholder='Confirm Password' type='password'/><br><br>

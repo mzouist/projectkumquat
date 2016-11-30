@@ -50,17 +50,12 @@
 	$rows = mysql_num_rows($result);
 	if($rows==1)
 	{
-<<<<<<< Updated upstream
-		$_SESSION['username'] = $username;
-		$_SESSION['mode'] = $mode;
-=======
 
 		$sqlRecord = mysql_fetch_assoc($result);
 		$manager_mode =  $sqlRecord['mode'];
 		$user_name = $sqlRecord['username'];
 		$_SESSION['username'] = $user_name;
 		$_SESSION['mode'] = $manager_mode;
->>>>>>> Stashed changes
 		//$action = "/main/dashboard.php";
 		header("Location: /main/dashboard.php"); // Redirect user to index.php
 		$_SESSION['error_flag'] = "";
@@ -76,11 +71,11 @@
 	<div class='login'>
 		<h2>Welcome</h2>
 		<form action="" method="post">
-			<input name='username' placeholder='Username' type='text' required/>
+			<input class="input-text" name='username' placeholder='Username' type='text' required/>
 			<input id='pw' name='password' placeholder='Password' type='password' required/>
 			<div class='remember'>
 				<input checked='' id='remember' name='remember' type='checkbox'/>
-				<label for='remember'></label>Remember me
+				<label class="login-label" for='remember'></label>Remember me
 				
 				<div> <?php echo $_SESSION['error_flag']; ?> </div>
 			</div>
