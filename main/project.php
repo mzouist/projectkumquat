@@ -91,6 +91,7 @@ echo 'Hello manager!';?>
     <input type="hidden" name="id" value="<?php echo $_GET["id"]; ?>">
     <button type="submit">Delete Project</button>
 </form>
+	<button class="btn btn-default" href="/addDevs.php">Add Developer</button>
 
 <?php 
 }

@@ -27,6 +27,7 @@
  $projectName = $_POST['projectName'];
  $deadline = $_POST['deadline'];
  $budgets = $_POST['budgets'];
+ $description = $_POST['comment'];
 
  //$projectName = mysql_real_escape_string($projectName);
  //$username = stripslashes($username);
@@ -46,7 +47,7 @@
  	}
  }
 if($bool == false){
- $query = "INSERT into projects (username, projectname, deadline, budgets) VALUES ('".$username."','".$projectName."','".$deadline."', '".$budgets."')";
+ $query = "INSERT into projects (username, projectname, deadline, budgets, description) VALUES ('$username','$projectName','$deadline', '$budgets', '$description')";
  $result = mysql_query($query, $conn) or die("Couldn't perform query $query (".__LINE__."): " . mysql_error() . '.');
  if($result){
  	header("Location: /main/addDevs.php?projectname=$projectName");

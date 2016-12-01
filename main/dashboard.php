@@ -96,7 +96,7 @@
 		<a href="project.php?id=<?php echo $results['project_id']; ?>" class="thumbnail" style="margin-bottom: 0 !important;">
             <img src="http://placehold.it/175x175"" width="175" class="img-circle img-responsive" style="margin-top: 10px"/>
             <div class="caption">
-              <h3 style="text-align: center; color:#3c8dc5; margin-top: 0px;"><?php echo $count; ?>. <?php echo $results['projectname']; ?></h3>
+              <h3 style="text-align: center; color:#3c8dc5; margin-top: 0px;"><?php echo $results['projectname']; ?></h3>
               
 
               <p>
